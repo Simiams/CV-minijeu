@@ -1,0 +1,4 @@
+https://randomuser.me/
+https://openweathermap.org/api
+http://www.zippopotam.us/
+https://www.countryflags.io/
