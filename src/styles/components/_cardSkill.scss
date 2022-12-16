@@ -1,0 +1,15 @@
+.cardSkill {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  img {
+    border-radius: 12px;
+    width: 10%;
+    height: 10%;
+  }
+  span{
+    margin: auto 0px;
+  }
+}
+
