@@ -2,22 +2,16 @@ import React, {Component} from 'react';
 import Card from "../components/home/Card";
 import Contact from "../components/home/Contact";
 import Experience from "../components/home/Experience";
-import {experiences} from "../data/experiences.data";
 import TitleLine from "../components/all/TitleLine";
 import ProjectCard from "../components/home/ProjectCard";
 import axios from "axios";
+import {userData} from "../data/CV/user.data";
+import {minijeuData} from "../data/minijeux/minijeu.data";
+import MiniJeuCard from "../components/home/MiniJeuCard";
 
 class Home extends Component {
-    state = {
-        user: {name: "Simon", lastName: "Convert", ddn: "26/11/2003", mail: "Simon.Convert@gmail.com", phone: "+33763329647", city: "Nantes"},
-        sectors: [
-            {id: 1, name: "Web", image: "../media/sectors/Pweb.png"},
-            {id: 2, name: "Prog", image: "../media/sectors/Pprog.png"},
-            {id: 3, name: "Cyber", image: "../media/sectors/Pcyber.png"},
-            {id: 4, name: "Res", image: "../media/sectors/Pres.png"}
-        ],
-        selectedRadio: "javascript"
-    }
+
+    state = userData;
 
     getNewId = () => {
         try {
@@ -29,14 +23,16 @@ class Home extends Component {
                 let lastName = res.data.results[0].name.last;
                 let city = res.data.results[0].location.city;
                 let ddn = res.data.results[0].dob.date.split("T")[0];
-
                 let mail = res.data.results[0].email;
                 let phone = res.data.results[0].phone;
                 this.setState({
-                    user: {name, lastName, ddn, mail, phone, city}
+                    name: name,
+                    lastName: lastName,
+                    ddn: ddn,
+                    mail: mail,
+                    phone: phone,
+                    city: city
                 })
-                console.log(name, lastName, ddn, mail, phone, city);
-                console.log(this.state.user)
             }).catch((err) => {
                 console.log(err)
             })
@@ -48,9 +44,7 @@ class Home extends Component {
 
 
     render() {
-        let {sectors} = this.state;
-        let {user} = this.state;
-
+        let user = this.state;
         return (
             <div className={"home"}>
                 <div className="top">
@@ -62,18 +56,15 @@ class Home extends Component {
                         <div className="homeContent">
                             <div className="content">
                                 <h1 onClick={this.getNewId}>{user.name} {user.lastName}</h1>
-                                <h2>[ Web; Infrastructure réseau; Cybersecurité; Programation ]</h2>
+                                <h2>[ {user.domainsActivity.join("; ")} ]</h2>
                                 <h3 className={"subtitle"}>Cherche</h3>
-                                <p> ==> Un stage de 5 semaines pour la periode du 02 janv. au 06 fev. 2022 </p>
+                                <p> Une <strong>{user.searchFor.postTitle}</strong> pour <strong>la {user.searchFor.startDate}</strong></p>
                                 <h3 className={"subtitle"}>Profil</h3>
-                                <p>Bonjour, je m'appelle {user.name}. Je suis actuelemnt en 2eme années de bachelor à l'EPSI
-                                    (Ecole Privée des Science Informatique) en double cursus BTS SIO (Service Informatique aux
+
+
+                                <p>Bonjour, je m'appelle {user.name}. Je suis actuelemnt en {user.school.grade} à l'{user.school.name} ({user.school.fullname}) en double cursus BTS SIO (Service Informatique aux
                                     organisations) sur {user.city}. </p>
-                                <p> Ce n'est que ma deuxiéme années et pourtant je commence a acquérir de solides bases
-                                    dans le monde du numérique. Aussi bien en; Devellopement Web avec php, NodeJS, JS, et
-                                    "html", qu'en Programmation Python, C# et C++ mais aussi en Infrastructure réseau. Passionné, je
-                                    me forme de mon côté à la cybersécurité et les differents outils que nous offre
-                                    Kali-Linux. </p>
+                                <p> {user.description} </p>
                                 <p> Ayant effectué mon précédent stage en tant que développeur C#, je vise, cette année,
                                     l'univers du web et de la cybersécurité. </p>
 
@@ -81,12 +72,9 @@ class Home extends Component {
                                 <div className="experiences">
 
                                     {
-                                        experiences.map((exp) => {
+                                        user.experiences.map((exp) => {
                                             return (
-                                                <Experience
-                                                    key={exp.id}
-                                                    exp={exp}
-                                                />
+                                                <Experience key={exp.id} exp={exp}/>
                                             )
                                         })
                                     }
@@ -95,18 +83,33 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="portfolio">
+                <div className="container">
                     <TitleLine
                         title={"Portfolio"}
                     />
-                    <div className="projects">
+                    <div className="contain">
                         {
-                            sectors.map((sector) => {
+                            user.sectors.map((sector) => {
                                 return (
                                     <ProjectCard
                                         key={sector.id}
                                         sector={sector}
                                     />
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+                <div className="container">
+                    <TitleLine
+                        title={"MiniJeu"}
+                    />
+                    <div className="contain">
+                        {
+                            Object.entries(minijeuData).map((minijeu) => {
+                                console.log(minijeu)
+                                return (
+                                    <MiniJeuCard minijeu={minijeu}/>
                                 )
                             })
                         }

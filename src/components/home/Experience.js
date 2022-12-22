@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {experiences} from "../../data/experiences.data";
+// import {experiences} from "../../data/CV/experiences.data";
 
 class Experience extends Component {
     render() {

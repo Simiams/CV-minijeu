@@ -1,8 +1,17 @@
 @import './settings';
 @import "./pages/home";
-@import "./components/card";
-@import "./components/cardSkill";
-@import "./components/contact";
-@import "./components/experience";
-@import "./components/titleLine";
-@import "./components/projectCard";
+@import 'pages/quizz';
+@import 'pages/minijeu';
+
+@import "components/CV/card";
+@import "components/CV/cardSkill";
+@import "components/CV/contact";
+@import "components/CV/experience";
+@import "components/CV/titleLine";
+@import "components/CV/projectCard";
+
+@import 'components/minijeu/navbar';
+@import 'components/minijeu/miniJeuCard';
+@import 'components/minijeu/quizzCard';
+@import 'components/minijeu/score';
+@import 'components/minijeu/quizzInfo';

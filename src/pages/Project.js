@@ -1,11 +1,13 @@
 import React from 'react';
+import BuildingPage from "../components/all/BuildingPage";
 
-const MyComponent = () => {
+const Project = () => {
     return (
         <div>
             Project
+            <BuildingPage />
         </div>
     );
 };
 
-export default MyComponent;
+export default Project;

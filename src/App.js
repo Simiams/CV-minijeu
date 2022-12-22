@@ -4,14 +4,18 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import Project from "./pages/Project";
 import NotFound from "./pages/NotFound";
+import Quizz from "./pages/Quizz";
+import Minijeu from "./pages/Minijeu";
 
 const App = () => {
     return (
         <BrowserRouter>
             <Switch>
                 <Route path={"/"} exact component={Home}/>
-                <Route path={"/Projects"} exact component={Portfolio}/>
-                <Route path={"/Projects/:projectName"} component={Project}/>
+                <Route path={"/Portfolio"} exact component={Portfolio}/>
+                <Route path={"/Portfolio/:projectName"} component={Project}/>
+                <Route path={"/MiniJeu"} exact component={Minijeu}/>
+                <Route path={"/MiniJeu/:game"} component={Quizz}/>
                 <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>
