@@ -2,25 +2,25 @@ import React, {Component} from 'react';
 
 class BuildingPage extends Component {
     render() {
-        let urlsVideo = [
-            {url: "https://embed.api.video/vod/vi4lRp0XD0srflEwvAUO3Mvd", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"},
-            {url: "https://www.youtube.com/watch?v=zBZgdTb-dns", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"},
-            {url: "https://www.youtube.com/watch?v=lkIFF4maKMU", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"},
-            {url: "https://www.youtube.com/watch?v=DVWu2b7mvFg", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"},
-            {url: "https://www.youtube.com/watch?v=aXOChLn5ZdQ", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"},
-            {url: "https://www.youtube.com/watch?v=WHyOHQ_GkNo", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"},
-            {url: "https://www.youtube.com/watch?v=2pfcynxODJc", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"},
-            {url: "https://www.youtube.com/watch?v=HleppfVh8jc", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"},
-            {url: "https://www.youtube.com/watch?v=QKgTZWbwD1U", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"},
-            {url: "https://www.youtube.com/watch?v=INUHCQST7CU", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"},
-            {url: "https://www.youtube.com/watch?v=rrB13utjYV4", channelName: "FireShip", channelLink: "https://www.youtube.com/@Fireship"}
+        let urlLibraryApi = "http://188.166.133.51:5000/api/media/";
+        let idVideo = [
+            "63a71c85d4e17bbf42242d72",
+            "63a71c68d4e17bbf42242d6c",
+            "63a71c56d4e17bbf42242d6a",
+            "63a71c48d4e17bbf42242d68",
+            "63a713fad4e17bbf42242d1b",
+            "63a71411d4e17bbf42242d1f",
+            "63a7141ed4e17bbf42242d21",
+            "63a71427d4e17bbf42242d23",
+            "63a71431d4e17bbf42242d25",
+            "63a7144ad4e17bbf42242d2c"
         ]
 
         return (
-            <div>
-                <h2>This page is in building</h2>
-                <iframe width="420" height="315"
-                        src={urlsVideo[Math.floor(Math.random() * (urlsVideo.length))].url}>
+            <div className={"buildingPage"}>
+                <h3>Please wait and watch this fucking vid from <strong><u><a target={"_blank"} rel={"noreferrer"} href="https://www.youtube.com/c/Fireship?app=desktop">fireship</a></u></strong></h3>
+                <iframe allowFullScreen width="420" height="315"
+                        src={urlLibraryApi + idVideo[Math.floor(Math.random() * (idVideo.length))]}>
                 </iframe>
             </div>
         );

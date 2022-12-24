@@ -2,6 +2,7 @@
 @import "./pages/home";
 @import 'pages/quizz';
 @import 'pages/minijeu';
+@import 'pages/project';
 
 @import "components/CV/card";
 @import "components/CV/cardSkill";
@@ -15,3 +16,5 @@
 @import 'components/minijeu/quizzCard';
 @import 'components/minijeu/score';
 @import 'components/minijeu/quizzInfo';
+
+@import 'components/all/buildingPage';
